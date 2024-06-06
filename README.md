@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Cadastro de Clientes
 
-## Getting Started
+Este é um formulário de cadastro de clientes desenvolvido em React utilizando a biblioteca `react-hook-form` e estilizado com `react-bootstrap`. O formulário permite o cadastro de informações básicas do cliente, como nome, CPF, endereço, data de nascimento, email, telefone, data de entrada na plataforma, situação do cliente e informações adicionais opcionais como veículo, CNPJ, razão social e nome fantasia.
 
-First, run the development server:
+## Como usar
+
+1. Clone o repositório para sua máquina local:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/seu-usuario/seu-repositorio.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Navegue até o diretório do projeto:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd nome-do-diretorio
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. Instale as dependências:
 
-## Learn More
+```bash
+npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Execute o projeto:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+5. Acesse o formulário de cadastro de clientes no seu navegador:
 
-## Deploy on Vercel
+```
+http://localhost:3000/clientes
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Funcionalidades
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Validação de entrada: o formulário valida automaticamente os campos obrigatórios, exibindo mensagens de erro caso algum campo não seja preenchido corretamente.
+- Submissão de dados: ao preencher todos os campos e clicar no botão "Cadastrar", os dados do cliente são submetidos para uma função de tratamento que os imprime no console.
+
+## Bibliotecas utilizadas
+
+- `react-hook-form`: Utilizada para simplificar a validação e gerenciamento de formulários em React.
+- `react-bootstrap`: Utilizada para estilizar os componentes do formulário com facilidade.
+
+## Estrutura do Projeto
+
+- `app/globals.css`: Arquivo CSS contendo estilos globais para o projeto.
+- `app/page.tsx`: Arquivo contendo o componente `Clientes`, responsável por renderizar o formulário de cadastro de clientes.
+- `package.json` e `package-lock.json`: Arquivos de configuração e dependências do projeto.
+
+## Autor
+
+João Batista R. Ribeiro.
+
+Se você tiver alguma dúvida ou sugestão de melhoria, sinta-se à vontade para entrar em contato ou abrir uma issue no repositório.
