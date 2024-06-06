@@ -1,113 +1,149 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
+import { Container, Row, Col, Button, Form } from "react-bootstrap";
+import { Plus } from "lucide-react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../app/globals.css';
+
+interface FormData {
+  nome: string;
+  cpf: string;
+  endereco: string;
+  dataNascimento: string;
+  email: string;
+  telefone: string;
+  dataEntrada: string;
+  situacao: string;
+  veiculo?: string;
+  razaoSocial?: string;
+  nomeFantasia?: string;
+  cnpj?: string;
+}
+
+export default function Clientes() {
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm<FormData>();
+
+  const onSubmit: SubmitHandler<FormData> = (data: FormData) =>
+    console.log(data);
+
+  const onError: SubmitErrorHandler<FormData> = (errors) => console.log(errors);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    <Container className="mt-5">
+      <h1 className="text-center mb-4">Cadastro de Clientes</h1>
+      <Row className="mb-4">
+        <Col>
+          <Button variant="primary">
+            <Plus className="mr-2" />
+            Cadastrar Cliente
+          </Button>
+        </Col>
+      </Row>
+      <Form onSubmit={handleSubmit(onSubmit, onError)} className="bg-white p-4 rounded shadow">
+        <Row>
+          <Col md={6}>
+            <Form.Group controlId="nome">
+              <Form.Label>Nome</Form.Label>
+              <Form.Control type="text" {...register('nome', { required: "Nome é requerido." })} />
+              {errors.nome && <span className="text-red-700">{errors.nome.message}</span>}
+            </Form.Group>
+          </Col>
+          <Col md={6}>
+            <Form.Group controlId="cpf">
+              <Form.Label>CPF</Form.Label>
+              <Form.Control type="text" {...register('cpf', { required: "CPF é requerido." })} />
+              {errors.cpf && <span className="text-red-700">{errors.cpf.message}</span>}
+            </Form.Group>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={6}>
+            <Form.Group controlId="endereco">
+              <Form.Label>Endereço</Form.Label>
+              <Form.Control type="text" {...register('endereco', { required: "Endereço é requerido." })} />
+              {errors.endereco && <span className="text-red-700">{errors.endereco.message}</span>}
+            </Form.Group>
+          </Col>
+          <Col md={6}>
+            <Form.Group controlId="dataNascimento">
+              <Form.Label>Data de Nascimento</Form.Label>
+              <Form.Control type="date" {...register('dataNascimento', { required: "Data de Nascimento é requerida." })} />
+              {errors.dataNascimento && <span className="text-red-700">{errors.dataNascimento.message}</span>}
+            </Form.Group>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={6}>
+            <Form.Group controlId="email">
+              <Form.Label>Email</Form.Label>
+              <Form.Control type="email" {...register('email', { required: "Email é requerido." })} />
+              {errors.email && <span className="text-red-700">{errors.email.message}</span>}
+            </Form.Group>
+          </Col>
+          <Col md={6}>
+            <Form.Group controlId="telefone">
+              <Form.Label>Telefone</Form.Label>
+              <Form.Control type="text" {...register('telefone', { required: "Telefone é requerido." })} />
+              {errors.telefone && <span className="text-red-700">{errors.telefone.message}</span>}
+            </Form.Group>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={6}>
+            <Form.Group controlId="dataEntrada">
+              <Form.Label>Data de Entrada na Plataforma</Form.Label>
+              <Form.Control type="date" {...register('dataEntrada', { required: "Data de Entrada é requerida." })} />
+              {errors.dataEntrada && <span className="text-red-700">{errors.dataEntrada.message}</span>}
+            </Form.Group>
+          </Col>
+          <Col md={6}>
+            <Form.Group controlId="situacao">
+              <Form.Label>Situação do Cliente</Form.Label>
+              <Form.Control as="select" {...register('situacao', { required: "Situação é requerida." })}>
+                <option value="">Selecione...</option>
+                <option value="ativo">Ativo</option>
+                <option value="inativo">Inativo</option>
+              </Form.Control>
+              {errors.situacao && <span className="text-red-700">{errors.situacao.message}</span>}
+            </Form.Group>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={6}>
+            <Form.Group controlId="veiculo">
+              <Form.Label>Veículo</Form.Label>
+              <Form.Control type="text" {...register('veiculo')} />
+            </Form.Group>
+          </Col>
+          <Col md={6}>
+            <Form.Group controlId="cnpj">
+              <Form.Label>CNPJ</Form.Label>
+              <Form.Control type="text" {...register('cnpj')} />
+            </Form.Group>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={6}>
+            <Form.Group controlId="razaoSocial">
+              <Form.Label>Razão Social</Form.Label>
+              <Form.Control type="text" {...register('razaoSocial')} />
+            </Form.Group>
+          </Col>
+          <Col md={6}>
+            <Form.Group controlId="nomeFantasia">
+              <Form.Label>Nome Fantasia</Form.Label>
+              <Form.Control type="text" {...register('nomeFantasia')} />
+            </Form.Group>
+          </Col>
+        </Row>
+        <Button type="submit" className="mt-3">Cadastrar</Button>
+      </Form>
+    </Container>
   );
 }
+
